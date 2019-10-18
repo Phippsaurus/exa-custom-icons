@@ -1,16 +1,16 @@
-use std::io::{Write, Result as IOResult};
+use std::io::{Result as IOResult, Write};
 
-use ansi_term::{ANSIStrings, ANSIGenericString};
+use ansi_term::{ANSIGenericString, ANSIStrings};
 
 use fs::File;
-use output::file_name::{FileName, FileStyle};
-use style::Colours;
-use output::icons::painted_icon;
 use output::cell::TextCell;
+use output::file_name::{FileName, FileStyle};
+use output::icons::painted_icon;
+use style::Colours;
 
 #[derive(PartialEq, Debug, Copy, Clone)]
 pub struct Options {
-    pub icons: bool
+    pub icons: bool,
 }
 
 /// The lines view literally just displays each file, line-by-line.
