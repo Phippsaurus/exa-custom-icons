@@ -60,7 +60,17 @@ impl FileExtensions {
     }
 
     fn is_crypto(&self, file: &File) -> bool {
-        file.extension_is_one_of(&["asc", "enc", "gpg", "pgp", "sig", "signature", "pfx", "p12"])
+        file.extension_is_one_of(&[
+            "asc",
+            "enc",
+            "gpg",
+            "pgp",
+            "sig",
+            "signature",
+            "pfx",
+            "p12",
+            "kdbx",
+        ])
     }
 
     fn is_document(&self, file: &File) -> bool {
