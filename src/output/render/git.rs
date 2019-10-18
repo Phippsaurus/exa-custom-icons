@@ -4,7 +4,7 @@ use fs::fields as f;
 use output::cell::{DisplayWidth, TextCell};
 
 impl f::Git {
-    pub fn render(&self, colours: &Colours) -> TextCell {
+    pub fn render(&self, colours: &dyn Colours) -> TextCell {
         TextCell {
             width: DisplayWidth::from(2),
             contents: vec![self.staged.render(colours), self.unstaged.render(colours)].into(),
@@ -13,7 +13,7 @@ impl f::Git {
 }
 
 impl f::GitStatus {
-    fn render(&self, colours: &Colours) -> ANSIString<'static> {
+    fn render(&self, colours: &dyn Colours) -> ANSIString<'static> {
         match *self {
             f::GitStatus::NotModified => colours.not_modified().paint("-"),
             f::GitStatus::New => colours.new().paint("N"),

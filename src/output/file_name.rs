@@ -14,7 +14,7 @@ pub struct FileStyle {
     pub classify: Classify,
 
     /// Mapping of file extensions to colours, to highlight regular files.
-    pub exts: Box<FileColours>,
+    pub exts: Box<dyn FileColours>,
 }
 
 impl FileStyle {
@@ -90,7 +90,7 @@ pub struct FileName<'a, 'dir: 'a, C: Colours + 'a> {
     classify: Classify,
 
     /// Mapping of file extensions to colours, to highlight regular files.
-    exts: &'a FileColours,
+    exts: &'a dyn FileColours,
 }
 
 impl<'a, 'dir, C: Colours> FileName<'a, 'dir, C> {
